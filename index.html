@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Physics Revision: Fluid Mechanics & Properties of Matter</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for TeX Rendering -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        code, pre { font-family: 'Fira Code', monospace; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+        .dark .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+<style>
+:root{color-scheme:light dark}html{scroll-padding-top:90px}body{line-height:1.65}main section{scroll-margin-top:90px}main section>div.bg-white,main section>div.grid>div.bg-white{transition:transform .2s,box-shadow .2s}main section>div.grid>div.bg-white:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,23,42,.08)}button,a,input,select{outline-offset:3px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #38bdf8}#studyTools{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:white;border-radius:20px;padding:24px;margin-bottom:26px;box-shadow:0 16px 40px rgba(15,23,42,.15)}.study-pill{border:1px solid #ffffff44;border-radius:12px;padding:10px 14px;font-weight:650;font-size:13px;background:#ffffff16;cursor:pointer}.study-pill:hover{background:#ffffff30}.study-progress{height:9px;background:#ffffff30;border-radius:20px;overflow:hidden;margin-top:14px}.study-progress>div{height:100%;background:#38bdf8;width:0;transition:width .25s}.dark #studyTools{background:linear-gradient(135deg,#172554,#0f172a)}.search-hit{outline:3px solid #f59e0b;outline-offset:6px;border-radius:8px}#searchFeedback{font-size:12px;min-height:18px;color:#0284c7}.dark #searchFeedback{color:#7dd3fc}@media print{header,aside,#studyTools,button,footer,.mobile-search{display:none!important}body{background:white!important;color:black!important}main{width:100%!important}section{break-inside:avoid}*{box-shadow:none!important}}
+</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-200 min-h-screen flex flex-col">
+
+    <!-- TOP HEADER / NAVBAR -->
+    <header class="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <button id="sidebarToggle" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="p-2 bg-sky-600 text-white rounded-lg shadow-sm font-bold text-lg"><i class="fa-solid fa-atom"></i></span>
+                    <div>
+                        <h1 class="font-bold text-slate-900 dark:text-white leading-tight text-sm sm:text-base">JEE Physics: Properties of Matter</h1>
+                        <p class="text-xs text-sky-600 dark:text-sky-400 font-medium hidden sm:block">Surface Tension • Elasticity • Viscosity</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-md mx-2 relative hidden md:block">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" id="searchInput" placeholder="Search concepts, formulas, JEE traps (e.g. 'Jurin', 'Poisson', 'Stokes')..." 
+                       class="w-full pl-9 pr-4 py-1.5 text-sm bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-800 dark:text-slate-200">
+            </div>
+
+            <!-- Header Controls -->
+            <div class="flex items-center gap-2">
+                <button id="themeToggle" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="Toggle Light/Dark Theme">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+                <a href="#calculators" class="hidden sm:flex items-center gap-1.5 text-xs font-semibold px-3 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg shadow-sm transition-all">
+                    <i class="fa-solid fa-calculator"></i> Calculators
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE SEARCH BAR -->
+    <div class="p-3 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 md:hidden">
+        <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input type="text" id="mobileSearchInput" placeholder="Search topics & formulas..." 
+                   class="w-full pl-9 pr-4 py-1.5 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500">
+        </div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 w-full flex gap-8 py-6">
+
+        <!-- SIDEBAR NAVIGATION -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 p-4 transform -translate-x-full lg:translate-x-0 lg:static lg:w-64 lg:shrink-0 transition-transform duration-200 ease-in-out flex flex-col justify-between overflow-y-auto">
+            <div class="space-y-6">
+                <div class="flex items-center justify-between lg:hidden pb-2 border-b border-slate-200 dark:border-slate-700">
+                    <span class="font-bold text-slate-900 dark:text-white">Navigation</span>
+                    <button id="closeSidebar" class="p-1 text-slate-500 hover:text-slate-800 dark:hover:text-white">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Modules</p>
+                    <nav class="space-y-1 text-sm font-medium">
+                        <a href="#surface-tension" class="nav-link flex items-center gap-2 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-sky-400 rounded-md transition-colors">
+                            <i class="fa-solid fa-droplet text-sky-500 w-4"></i> Surface Tension
+                        </a>
+                        <a href="#elasticity" class="nav-link flex items-center gap-2 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-sky-400 rounded-md transition-colors">
+                            <i class="fa-solid fa-bezier-curve text-indigo-500 w-4"></i> Elasticity
+                        </a>
+                        <a href="#viscosity" class="nav-link flex items-center gap-2 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-sky-400 rounded-md transition-colors">
+                            <i class="fa-solid fa-wind text-teal-500 w-4"></i> Viscosity
+                        </a>
+                    </nav>
+                </div>
+
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">JEE Prep Tools</p>
+                    <nav class="space-y-1 text-sm font-medium">
+                        <a href="#jee-traps" class="nav-link flex items-center gap-2 px-3 py-2 text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-md transition-colors">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-500 w-4"></i> Common JEE Traps
+                        </a>
+                        <a href="#cheatsheet" class="nav-link flex items-center gap-2 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-sky-400 rounded-md transition-colors">
+                            <i class="fa-solid fa-file-invoice text-emerald-500 w-4"></i> Formula Cheat Sheet
+                        </a>
+                        <a href="#calculators" class="nav-link flex items-center gap-2 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-sky-400 rounded-md transition-colors">
+                            <i class="fa-solid fa-calculator text-rose-500 w-4"></i> Numerical Solvers
+                        </a>
+                        <a href="#quiz" class="nav-link flex items-center gap-2 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-700 hover:text-sky-600 dark:hover:text-sky-400 rounded-md transition-colors">
+                            <i class="fa-solid fa-circle-question text-purple-500 w-4"></i> JEE Flashcard Practice
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- JEE Quick Alert Box -->
+            <div class="mt-8 p-3 bg-sky-50 dark:bg-slate-900 border border-sky-200 dark:border-sky-800 rounded-lg text-xs">
+                <span class="font-bold text-sky-800 dark:text-sky-300 flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check"></i> JEE Revision Hub
+                </span>
+                <p class="text-slate-600 dark:text-slate-400 mt-1">
+                    Exam-focused concepts, formula checks and interactive practice.
+                </p>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT CONTAINER -->
+        <main class="flex-1 min-w-0 space-y-12">
+
+            <section id="studyTools" aria-label="Study dashboard"><div class="flex flex-wrap justify-between gap-3 items-center"><div><div class="text-xs uppercase tracking-widest text-sky-200 font-bold">YOUR REVISION WORKSPACE</div><h2 class="text-2xl font-extrabold mt-1">Study smarter. Revise faster.</h2><p class="text-sm text-slate-200 mt-1">Mark modules complete and continue where you left off.</p></div><div class="text-right"><div id="progressText" class="text-2xl font-bold">0 / 3</div><div class="text-xs text-sky-200">modules completed</div></div></div><div class="study-progress"><div id="progressFill"></div></div><div class="flex flex-wrap gap-2 mt-5"><button class="study-pill" data-module="surface-tension">○ Surface tension</button><button class="study-pill" data-module="elasticity">○ Elasticity</button><button class="study-pill" data-module="viscosity">○ Viscosity</button><button class="study-pill" id="shuffleCards">↻ Shuffle flashcards</button><button class="study-pill" onclick="window.print()">⎙ Print notes</button></div><p id="searchFeedback" role="status" class="mt-3"></p></section>
+<!-- HERO SECTION -->
+            <section class="bg-gradient-to-br from-sky-900 via-slate-900 to-indigo-950 text-white rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden border border-sky-800">
+                <div class="relative z-10 space-y-3 max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30 text-xs font-semibold">
+                        <i class="fa-solid fa-graduation-cap"></i> Class 11/12 Physics • JEE Main &amp; Advanced
+                    </div>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                        Fluid Mechanics &amp; Properties of Matter
+                    </h1>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Comprehensive, mathematically accurate notes, derivations, common trap alerts, interactive calculators, and high-yield flashcards for Surface Tension, Elasticity, and Viscosity.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 1: SURFACE TENSION -->
+            <section id="surface-tension" class="scroll-mt-20 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <span class="p-2.5 bg-sky-100 dark:bg-sky-900/50 text-sky-600 dark:text-sky-400 rounded-xl text-xl font-bold">
+                        <i class="fa-solid fa-droplet"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">1. Surface Tension ($S$ or $T$)</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Molecular theory, free surfaces, surface energy, excess pressure &amp; capillary ascent</p>
+                    </div>
+                </div>
+
+                <!-- Surface Tension Fundamentals -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-ruler-horizontal text-sky-500"></i> Definition &amp; Units
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Surface tension is the property by virtue of which a liquid surface behaves like a stretched elastic membrane trying to minimize its surface area.
+                        </p>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg text-center font-mono text-sm border border-slate-200 dark:border-slate-700 text-sky-600 dark:text-sky-400 font-semibold">
+                            $$S = \frac{F}{l}$$
+                        </div>
+                        <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1">
+                            <li>• <strong>SI Unit:</strong> $\text{N/m}$ or $\text{J/m}^2$</li>
+                            <li>• <strong>Dimensions:</strong> $[M^1 L^0 T^{-2}]$</li>
+                            <li>• <strong>CGS Unit:</strong> $\text{dyne/cm}$ ($1\text{ N/m} = 10^3\text{ dyne/cm}$)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-temperature-three-quarters text-amber-500"></i> Factors Affecting Surface Tension
+                        </h3>
+                        <div class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <div class="p-2 bg-slate-50 dark:bg-slate-900/60 rounded border border-slate-200 dark:border-slate-700">
+                                <strong class="text-slate-800 dark:text-slate-200">Temperature:</strong> As $T \uparrow$, $S \downarrow$. At critical temperature $T_c$, $S = 0$.
+                            </div>
+                            <div class="p-2 bg-slate-50 dark:bg-slate-900/60 rounded border border-slate-200 dark:border-slate-700">
+                                <strong class="text-slate-800 dark:text-slate-200">Highly Soluble Impurities (e.g. NaCl):</strong> Surface tension increases ($S \uparrow$).
+                            </div>
+                            <div class="p-2 bg-slate-50 dark:bg-slate-900/60 rounded border border-slate-200 dark:border-slate-700">
+                                <strong class="text-slate-800 dark:text-slate-200">Sparsely Soluble / Detergents:</strong> Surface tension decreases ($S \downarrow$).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table of Free Surfaces -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-sky-500"></i> Free Surfaces &amp; Area Factor (Crucial for Numericals)
+                        </h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            <thead class="bg-slate-100 dark:bg-slate-900/80 text-slate-800 dark:text-slate-200 font-semibold border-b border-slate-200 dark:border-slate-700">
+                                <tr>
+                                    <th class="p-3">Structure / System</th>
+                                    <th class="p-3">Free Surfaces ($N$)</th>
+                                    <th class="p-3">Total Area Factor</th>
+                                    <th class="p-3">Excess Pressure ($\Delta P$)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                                <tr>
+                                    <td class="p-3 font-semibold text-slate-800 dark:text-slate-100">Liquid Drop</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 font-bold">1</span></td>
+                                    <td class="p-3">$A = 4\pi R^2$</td>
+                                    <td class="p-3 font-mono font-bold text-sky-600 dark:text-sky-400">$\Delta P = \frac{2S}{R}$</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-slate-800 dark:text-slate-100">Soap Bubble in Air</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 font-bold">2</span></td>
+                                    <td class="p-3">$A = 2 \times (4\pi R^2) = 8\pi R^2$</td>
+                                    <td class="p-3 font-mono font-bold text-amber-600 dark:text-amber-400">$\Delta P = \frac{4S}{R}$</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-slate-800 dark:text-slate-100">Air Bubble Inside Liquid</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 font-bold">1</span></td>
+                                    <td class="p-3">$A = 4\pi R^2$</td>
+                                    <td class="p-3 font-mono font-bold text-sky-600 dark:text-sky-400">$\Delta P = \frac{2S}{R}$</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-slate-800 dark:text-slate-100">Cylindrical Liquid Column</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-300">1</span></td>
+                                    <td class="p-3">$A = 2\pi R L$</td>
+                                    <td class="p-3 font-mono font-bold text-teal-600 dark:text-teal-400">$\Delta P = \frac{S}{R}$</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Surface Energy & Droplet Merging/Splitting -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Surface Energy & Soap Bubble Work -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-bolt text-amber-500"></i> Work Done &amp; Surface Energy
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            Work done to increase surface area by $\Delta A_{\text{total}}$ is stored as surface potential energy:
+                        </p>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg text-center font-mono text-sm border border-slate-200 dark:border-slate-700 text-sky-600 dark:text-sky-400">
+                            $$W = \Delta U = S \cdot \Delta A_{\text{total}}$$
+                        </div>
+                        <div class="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-lg text-xs space-y-1">
+                            <p class="font-bold text-amber-800 dark:text-amber-300">Blowing Soap Bubble of Radius $R$:</p>
+                            <p class="text-slate-700 dark:text-slate-300">$W = S \times (2 \times 4\pi R^2) = \mathbf{8\pi R^2 S}$</p>
+                            <p class="font-bold text-amber-800 dark:text-amber-300 mt-2">Work to Double Radius ($R \to 2R$):</p>
+                            <p class="text-slate-700 dark:text-slate-300">$W_{\text{add}} = 8\pi S \left[(2R)^2 - R^2\right] = \mathbf{24\pi R^2 S} = 3 W_{\text{initial}}$</p>
+                        </div>
+                    </div>
+
+                    <!-- Merging vs Splitting Droplets -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-diagram-project text-indigo-500"></i> Droplet Coalescence vs Splitting
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                            When $n$ tiny droplets of radius $r$ merge into a big drop of radius $R$:
+                        </p>
+                        <ul class="text-xs space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <li>• <strong>Volume Conservation:</strong> $\frac{4}{3}\pi R^3 = n \cdot \frac{4}{3}\pi r^3 \implies \mathbf{R = n^{1/3} r}$</li>
+                            <li>• <strong>Area Reduction:</strong> Surface area decreases $\implies$ Energy released (Exothermic process).</li>
+                            <li>• <strong>Temperature Rise ($\Delta T$):</strong></li>
+                        </ul>
+                        <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg text-center font-mono text-xs border border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400">
+                            $$\Delta U = 4\pi S (n r^2 - R^2) = 3 S V \left(\frac{1}{r} - \frac{1}{R}\right)$$
+                            $$\Delta T = \frac{3S}{J \rho s} \left(\frac{1}{r} - \frac{1}{R}\right)$$
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Angle & Capillarity -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-arrows-up-down text-emerald-500"></i> Contact Angle ($\theta$) &amp; Capillary Rise (Ascent Formula)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 space-y-1">
+                            <strong class="text-sky-600 dark:text-sky-400 font-bold block">Acute ($\theta < 90^\circ$)</strong>
+                            <p class="text-slate-600 dark:text-slate-300">Concave meniscus, liquid wets glass, liquid rises in capillary (e.g. Water in Glass, $\theta \approx 0^\circ$).</p>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 space-y-1">
+                            <strong class="text-slate-700 dark:text-slate-300 font-bold block">Right Angle ($\theta = 90^\circ$)</strong>
+                            <p class="text-slate-600 dark:text-slate-300">Flat meniscus, liquid neither rises nor falls (e.g. Water in Silver tube).</p>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 space-y-1">
+                            <strong class="text-rose-600 dark:text-rose-400 font-bold block">Obtuse ($\theta > 90^\circ$)</strong>
+                            <p class="text-slate-600 dark:text-slate-300">Convex meniscus, non-wetting liquid, liquid level falls in capillary (e.g. Mercury in Glass, $\theta \approx 140^\circ$).</p>
+                        </div>
+                    </div>
+
+                    <!-- Formula Box & Jurin's Law -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 bg-sky-50 dark:bg-slate-900/80 border border-sky-200 dark:border-sky-800 rounded-lg">
+                            <h4 class="font-bold text-sky-900 dark:text-sky-300 text-xs uppercase tracking-wider mb-2">Ascent Formula (Height of Rise $h$)</h4>
+                            <div class="font-mono text-sm text-center text-sky-700 dark:text-sky-300 my-2">
+                                $$h = \frac{2 S \cos\theta}{r \rho g} = \frac{2S}{R \rho g}$$
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400">Where $r$ = tube radius, $R = \frac{r}{\cos\theta}$ = meniscus curvature radius.</p>
+                        </div>
+
+                        <div class="p-4 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-lg">
+                            <h4 class="font-bold text-amber-900 dark:text-amber-300 text-xs uppercase tracking-wider mb-2">Jurin's Law &amp; Tube of Insufficient Length</h4>
+                            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                                Product of height and radius of meniscus is constant: $\mathbf{h \cdot R = \text{Constant}}$.<br>
+                                If a capillary of length $h' < h$ is taken, liquid <strong>WILL NOT OVERFLOW</strong>. Instead, meniscus flattens ($R' > R$) such that $\mathbf{h' R' = h R}$.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Energy Dissipation in Capillary -->
+                    <div class="p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs border border-slate-200 dark:border-slate-700 space-y-1">
+                        <p class="font-bold text-slate-800 dark:text-slate-200"><i class="fa-solid fa-fire-flame-curved text-rose-500"></i> Energy Dissipation Derivation in Capillary Rise:</p>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            • Work done by Surface Tension: $W_{\text{ST}} = (2\pi r S \cos\theta) \cdot h = \mathbf{\frac{4\pi S^2 \cos^2\theta}{\rho g}}$<br>
+                            • Gain in Potential Energy of liquid column: $\Delta U = m g \left(\frac{h}{2}\right) = (\pi r^2 h \rho) g \frac{h}{2} = \mathbf{\frac{1}{2} W_{\text{ST}}}$<br>
+                            • <strong>Heat Loss ($\Delta H$):</strong> $W_{\text{ST}} - \Delta U = \mathbf{\frac{1}{2} W_{\text{ST}}}$. Exactly <strong>50% of the work done is converted into heat!</strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: ELASTICITY -->
+            <section id="elasticity" class="scroll-mt-20 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <span class="p-2.5 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-xl text-xl font-bold">
+                        <i class="fa-solid fa-bezier-curve"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">2. Elasticity &amp; Hooke's Law</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Stress, Strain, Elastic Moduli ($Y, \eta, B$), Wire Elongation, Fast Loading &amp; Poisson's Ratio</p>
+                    </div>
+                </div>
+
+                <!-- Elasticity Moduli Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Young's Modulus -->
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+                        <span class="px-2 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 rounded text-xs font-bold">Longitudinal</span>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm">Young's Modulus ($Y$)</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Applies only to solids.</p>
+                        <div class="p-2 bg-slate-50 dark:bg-slate-900 rounded font-mono text-xs text-center border border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400">
+                            $$Y = \frac{\text{Longitudinal Stress}}{\text{Longitudinal Strain}} = \frac{F / A}{\Delta L / L}$$
+                        </div>
+                    </div>
+
+                    <!-- Shear Modulus -->
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+                        <span class="px-2 py-1 bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300 rounded text-xs font-bold">Tangential</span>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm">Shear Modulus ($\eta$)</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Modulus of Rigidity.</p>
+                        <div class="p-2 bg-slate-50 dark:bg-slate-900 rounded font-mono text-xs text-center border border-slate-200 dark:border-slate-700 text-teal-600 dark:text-teal-400">
+                            $$\eta = \frac{\text{Shear Stress}}{\text{Shear Strain}} = \frac{F_\parallel / A}{\theta}$$
+                        </div>
+                    </div>
+
+                    <!-- Bulk Modulus -->
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+                        <span class="px-2 py-1 bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 rounded text-xs font-bold">Volumetric</span>
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm">Bulk Modulus ($B$)</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400">Solids, Liquids &amp; Gases.</p>
+                        <div class="p-2 bg-slate-50 dark:bg-slate-900 rounded font-mono text-xs text-center border border-slate-200 dark:border-slate-700 text-sky-600 dark:text-sky-400">
+                            $$B = - V \frac{\Delta P}{\Delta V} \quad \left[\text{Compressibility } k = \frac{1}{B}\right]$$
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Wire Elongation Formulae & Sudden Loading -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-weight-hanging text-indigo-500"></i> Wire Elongation &amp; Own Weight
+                        </h3>
+                        <div class="space-y-2 text-xs">
+                            <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700">
+                                <strong>Elongation due to External Load $F$:</strong>
+                                <div class="font-mono text-indigo-600 dark:text-indigo-400 mt-1 text-center">$$\Delta L = \frac{F L}{A Y}$$</div>
+                            </div>
+                            <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700">
+                                <strong>Elongation due to Own Weight ($M, L, \rho$):</strong>
+                                <p class="text-slate-600 dark:text-slate-400 my-1">Center of mass moves by $L/2$. Average force = $Mg/2$.</p>
+                                <div class="font-mono text-indigo-600 dark:text-indigo-400 text-center">$$\Delta L_{\text{weight}} = \frac{M g L}{2 A Y} = \frac{\rho g L^2}{2 Y}$$</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gradual vs Sudden Loading -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-bolt text-rose-500"></i> Slow (Gradual) vs Sudden Loading
+                        </h3>
+                        <div class="space-y-2 text-xs">
+                            <div class="p-2.5 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 rounded">
+                                <strong class="text-emerald-800 dark:text-emerald-300">Slow / Gradual Loading:</strong>
+                                <p class="text-slate-700 dark:text-slate-300 mt-1">Average force = $F/2$. Max extension $\Delta L = \frac{FL}{AY}$. Work done = $\frac{1}{2} F \Delta L = \mathbf{\Delta U}$ (No heat loss).</p>
+                            </div>
+                            <div class="p-2.5 bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800 rounded">
+                                <strong class="text-rose-800 dark:text-rose-300">Sudden Loading (Weight dropped without velocity):</strong>
+                                <p class="text-slate-700 dark:text-slate-300 mt-1">
+                                    • Maximum Extension: $\mathbf{\Delta L_{\text{max}} = \frac{2 F L}{A Y}} = 2 \times \Delta L_{\text{slow}}$<br>
+                                    • Maximum Stress: $\mathbf{\sigma_{\text{max}} = 2 \times \sigma_{\text{slow}}}$<br>
+                                    • Work Done = $F \cdot \Delta L_{\text{max}} = \mathbf{\frac{2 F^2 L}{A Y}}$<br>
+                                    • Elastic energy at maximum extension: $\Delta U = \mathbf{\frac{2F^2 L}{A Y}}$. In an ideal undamped model, there is no heat loss and the load can oscillate.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poisson's Ratio & Elastic Constants Interrelations -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-link text-purple-500"></i> Poisson's Ratio ($\sigma$) &amp; Elastic Constant Interrelations
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 space-y-2">
+                            <p class="font-bold text-slate-800 dark:text-slate-200">Poisson's Ratio Definition:</p>
+                            <div class="font-mono text-center text-purple-600 dark:text-purple-400">
+                                $$\sigma = -\frac{\text{Lateral Strain}}{\text{Longitudinal Strain}} = -\frac{\Delta r / r}{\Delta L / L}$$
+                            </div>
+                            <ul class="space-y-1 text-slate-600 dark:text-slate-400">
+                                <li>• <strong>Theoretical Limits:</strong> $-1 < \sigma < 0.5$</li>
+                                <li>• <strong>Practical Limits:</strong> $0 < \sigma < 0.5$ (For most metals $\approx 0.3$)</li>
+                                <li>• <strong>Volumetric Strain Relation:</strong> $\mathbf{\frac{\Delta V}{V} = \frac{\Delta L}{L}(1 - 2\sigma)}$</li>
+                                <li>• <strong>If $\sigma = 0.5$ (Ideal incompressible elastic solid):</strong> $\frac{\Delta V}{V} = 0$. Volume does not change under stress!</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 space-y-2">
+                            <p class="font-bold text-slate-800 dark:text-slate-200">The 4 Golden Moduli Interrelations (Must Remember):</p>
+                            <div class="font-mono text-xs space-y-2 text-indigo-600 dark:text-indigo-400">
+                                <div class="p-1.5 bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-center">1. $Y = 3B(1 - 2\sigma)$</div>
+                                <div class="p-1.5 bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-center">2. $Y = 2\eta(1 + \sigma)$</div>
+                                <div class="p-1.5 bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-center">3. $\sigma = \frac{3B - 2\eta}{2\eta + 6B}$</div>
+                                <div class="p-1.5 bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-center font-bold text-rose-600 dark:text-rose-400">4. $\frac{9}{Y} = \frac{1}{B} + \frac{3}{\eta}$</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Torsion & Bending Sagging -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs pt-2">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700">
+                            <p class="font-bold text-slate-800 dark:text-slate-200">Torsional Rigidity Constant ($C$):</p>
+                            <p class="text-slate-600 dark:text-slate-400 my-1">Restoring torque $\tau = C \cdot \theta$.</p>
+                            <p class="font-mono text-teal-600 dark:text-teal-400 mt-1">• Solid Cylinder: $\mathbf{C = \frac{\pi \eta R^4}{2 L}}$</p>
+                            <p class="font-mono text-teal-600 dark:text-teal-400">• Hollow Cylinder: $\mathbf{C = \frac{\pi \eta (R_2^4 - R_1^4)}{2 L}}$</p>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700">
+                            <p class="font-bold text-slate-800 dark:text-slate-200">Sagging of a Beam ($\delta$):</p>
+                            <p class="text-slate-600 dark:text-slate-400 my-1">Depression $\delta$ at the center of a beam of length $L$, breadth $b$, depth $d$ loaded with weight $W$:</p>
+                            <div class="font-mono text-indigo-600 dark:text-indigo-400 text-center mt-2">
+                                $$\delta = \frac{W L^3}{4 b d^3 Y}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: VISCOSITY -->
+            <section id="viscosity" class="scroll-mt-20 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <span class="p-2.5 bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 rounded-xl text-xl font-bold">
+                        <i class="fa-solid fa-wind"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">3. Viscosity &amp; Fluid Dynamics</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Newton's law, Poiseuille conversions, Stokes' law, Terminal velocity derivation &amp; Reynolds number</p>
+                    </div>
+                </div>
+
+                <!-- Newton's Law & Units -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-water text-teal-500"></i> Newton's Law of Viscosity
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Viscous force opposing relative layer motion is proportional to area $A$ and velocity gradient $\frac{dv}{dy}$:
+                        </p>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded font-mono text-sm text-center border border-slate-200 dark:border-slate-700 text-teal-600 dark:text-teal-400">
+                            $$F = -\eta A \frac{dv}{dy}$$
+                        </div>
+                        <div class="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded text-xs space-y-1">
+                            <p class="font-bold text-amber-800 dark:text-amber-300">Unit Conversions (High JEE Error Rate!):</p>
+                            <p class="text-slate-700 dark:text-slate-300">• <strong>SI Unit:</strong> $\text{Pa}\cdot\text{s}$ or $\text{N}\cdot\text{s/m}^2$ or $\text{kg/(m}\cdot\text{s)}$ (Poiseuille, $\text{Pl}$)</p>
+                            <p class="text-slate-700 dark:text-slate-300">• <strong>CGS Unit:</strong> $\text{Poise} = \text{dyne}\cdot\text{s/cm}^2$</p>
+                            <p class="font-bold text-teal-700 dark:text-teal-300 mt-1">$$\mathbf{1 \text{ Pa}\cdot\text{s} = 1 \text{ Poiseuille} = 10 \text{ Poise}} \implies 1 \text{ Poise} = 0.1 \text{ Pa}\cdot\text{s}$$</p>
+                        </div>
+                    </div>
+
+                    <!-- Temperature Effect on Viscosity -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-temperature-arrow-up text-rose-500"></i> Effect of Temperature on Viscosity
+                        </h3>
+                        <div class="space-y-3 text-xs">
+                            <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700">
+                                <strong class="text-slate-800 dark:text-slate-200 text-sm">Liquids: $\eta \downarrow$ as $T \uparrow$</strong>
+                                <p class="text-slate-600 dark:text-slate-400 mt-1">Dominant mechanism = Cohesive forces. Higher kinetic energy breaks intermolecular bonds $\implies$ Viscosity decreases.</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700">
+                                <strong class="text-slate-800 dark:text-slate-200 text-sm">Gases: $\eta \uparrow$ as $T \uparrow$ ($\eta \propto \sqrt{T}$)</strong>
+                                <p class="text-slate-600 dark:text-slate-400 mt-1">Dominant mechanism = Momentum exchange between layers due to thermal motion. Higher speed $\implies$ more collisions $\implies$ Viscosity increases.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stokes' Law & Terminal Velocity Derivation -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-circle-down text-sky-500"></i> Stokes' Law &amp; Terminal Velocity Derivation
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-300">
+                        When a spherical body of radius $r$ and density $\rho_s$ falls through a viscous medium of density $\rho_f$ and viscosity $\eta$:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700">
+                            <strong>1. Viscous Drag (Stokes' Law):</strong>
+                            <div class="font-mono text-center text-teal-600 dark:text-teal-400 my-2">$$F_v = 6\pi \eta r v$$</div>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700">
+                            <strong>2. Equilibrium at Terminal Speed:</strong>
+                            <p class="text-slate-600 dark:text-slate-400 my-1">Net Force = $0 \implies F_v + F_B = W$</p>
+                            <div class="font-mono text-center text-slate-700 dark:text-slate-300">$$6\pi\eta r v_T + \frac{4}{3}\pi r^3 \rho_f g = \frac{4}{3}\pi r^3 \rho_s g$$</div>
+                        </div>
+                        <div class="p-3 bg-sky-50 dark:bg-slate-900 rounded border border-sky-200 dark:border-sky-800">
+                            <strong class="text-sky-800 dark:text-sky-300">3. Terminal Velocity Formula:</strong>
+                            <div class="font-mono text-center text-sky-600 dark:text-sky-400 font-bold my-2">
+                                $$v_T = \frac{2 r^2 g (\rho_s - \rho_f)}{9 \eta}$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-lg text-xs space-y-1">
+                        <p class="font-bold text-amber-800 dark:text-amber-300"><i class="fa-solid fa-lightbulb"></i> Key Terminal Velocity Takeaways:</p>
+                        <p class="text-slate-700 dark:text-slate-300">• $v_T \propto r^2$ (Velocity increases quadratically with radius).</p>
+                        <p class="text-slate-700 dark:text-slate-300">• If $\rho_s < \rho_f$ (e.g. Air bubble rising in water), $v_T$ is negative $\implies$ Bubble moves UPWARDS.</p>
+                    </div>
+                </div>
+
+                <!-- Reynolds Number -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high text-indigo-500"></i> Reynolds Number ($Re$) &amp; Flow Regimes
+                    </h3>
+                    <div class="font-mono text-center p-3 bg-slate-50 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 text-sm">
+                        $$Re = \frac{\text{Inertial Force}}{\text{Viscous Force}} = \frac{\rho v D}{\eta}$$
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-center">
+                        <div class="p-3 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 rounded-lg">
+                            <span class="font-bold text-emerald-800 dark:text-emerald-300 text-sm">Re &lt; 2000</span>
+                            <p class="text-slate-600 dark:text-slate-400 mt-1">Streamline / Laminar Flow</p>
+                        </div>
+                        <div class="p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
+                            <span class="font-bold text-amber-800 dark:text-amber-300 text-sm">2000 &lt; Re &lt; 3000</span>
+                            <p class="text-slate-600 dark:text-slate-400 mt-1">Unsteady / Transition Flow</p>
+                        </div>
+                        <div class="p-3 bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800 rounded-lg">
+                            <span class="font-bold text-rose-800 dark:text-rose-300 text-sm">Re &gt; 3000</span>
+                            <p class="text-slate-600 dark:text-slate-400 mt-1">Turbulent Flow</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: COMMON JEE TRAPS -->
+            <section id="jee-traps" class="scroll-mt-20 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <span class="p-2.5 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 rounded-xl text-xl font-bold">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">4. High-Yield JEE Traps &amp; Common Mistakes</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Avoid these classic conceptual and calculation errors in JEE Main &amp; Advanced</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white dark:bg-slate-800 border-l-4 border-amber-500 rounded-r-xl border-y border-r border-slate-200 dark:border-slate-700 shadow-sm space-y-1 text-xs">
+                        <span class="font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider text-[10px]">Trap #1: Free Surfaces Count</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Forgetting $N=2$ for Soap Bubbles</h4>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Always check if it is a <strong>Liquid Drop</strong> ($\Delta P = 2S/R$) or a <strong>Soap Bubble</strong> ($\Delta P = 4S/R$). For work done blowing a soap bubble, remember to multiply total surface area by $2$!
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 border-l-4 border-rose-500 rounded-r-xl border-y border-r border-slate-200 dark:border-slate-700 shadow-sm space-y-1 text-xs">
+                        <span class="font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider text-[10px]">Trap #2: Sudden Loading Extension</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Factor of 2 in Sudden Loading</h4>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Under sudden loading, max extension is $\mathbf{2 \times \frac{FL}{AY}}$, NOT $\frac{FL}{AY}$. Max stress is also doubled! in an ideal undamped system, energy is not automatically lost as heat.
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 border-l-4 border-sky-500 rounded-r-xl border-y border-r border-slate-200 dark:border-slate-700 shadow-sm space-y-1 text-xs">
+                        <span class="font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider text-[10px]">Trap #3: Capillary Insufficient Length</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Water Does NOT Overflow!</h4>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            In a capillary tube shorter than calculated rise $h$, liquid will NEVER spill over like a fountain. It rises to the top edge and increases its radius of curvature $R'$ according to Jurin's law ($h R = h' R'$).
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 border-l-4 border-teal-500 rounded-r-xl border-y border-r border-slate-200 dark:border-slate-700 shadow-sm space-y-1 text-xs">
+                        <span class="font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider text-[10px]">Trap #4: Viscosity Units</span>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm">Confusing Poise and Poiseuille</h4>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            $1\text{ Poise} = 0.1\text{ Pa}\cdot\text{s}$. If viscosity is given in Poise in JEE questions, multiply by $0.1$ before plugging into SI unit equations!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: FORMULA CHEAT SHEET -->
+            <section id="cheatsheet" class="scroll-mt-20 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <span class="p-2.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-xl text-xl font-bold">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">5. Complete Formula Cheat Sheet</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Quick-reference formulas for exam-day revision</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                        <h4 class="font-bold text-sky-600 dark:text-sky-400 text-xs uppercase">Surface Tension</h4>
+                        <div class="font-mono text-xs space-y-1.5 text-slate-700 dark:text-slate-200">
+                            <p>• $S = F / l$</p>
+                            <p>• $W = S \cdot \Delta A_{\text{total}}$</p>
+                            <p>• Drop: $\Delta P = 2S/R$</p>
+                            <p>• Soap Bubble: $\Delta P = 4S/R$</p>
+                            <p>• Capillary: $h = \frac{2S\cos\theta}{r\rho g}$</p>
+                            <p>• Double bubble: $\frac{1}{r} = \frac{1}{r_1} - \frac{1}{r_2}$</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                        <h4 class="font-bold text-indigo-600 dark:text-indigo-400 text-xs uppercase">Elasticity</h4>
+                        <div class="font-mono text-xs space-y-1.5 text-slate-700 dark:text-slate-200">
+                            <p>• $Y = \frac{F L}{A \Delta L}$</p>
+                            <p>• Energy density $u = \frac{1}{2} \times \text{Stress} \times \text{Strain}$</p>
+                            <p>• Own weight $\Delta L = \frac{\rho g L^2}{2 Y}$</p>
+                            <p>• Sudden load $\Delta L_{\text{max}} = \frac{2 F L}{A Y}$</p>
+                            <p>• Torsion $C = \frac{\pi \eta R^4}{2L}$</p>
+                            <p>• Beam Sag $\delta = \frac{W L^3}{4 b d^3 Y}$</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                        <h4 class="font-bold text-teal-600 dark:text-teal-400 text-xs uppercase">Viscosity</h4>
+                        <div class="font-mono text-xs space-y-1.5 text-slate-700 dark:text-slate-200">
+                            <p>• $F = -\eta A \frac{dv}{dy}$</p>
+                            <p>• $1\text{ Pa}\cdot\text{s} = 10\text{ Poise}$</p>
+                            <p>• $F_v = 6\pi \eta r v$</p>
+                            <p>• $v_T = \frac{2 r^2 g (\rho_s - \rho_f)}{9 \eta}$</p>
+                            <p>• $Re = \frac{\rho v D}{\eta}$</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: NUMERICAL CALCULATORS -->
+            <section id="calculators" class="scroll-mt-20 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <span class="p-2.5 bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 rounded-xl text-xl font-bold">
+                        <i class="fa-solid fa-calculator"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">6. Interactive Physics Numerical Solvers</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Test formulas &amp; verify numerical problem results instantly</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Calculator 1: Excess Pressure & Surface Energy -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-circle text-sky-500"></i> Excess Pressure Solver
+                        </h3>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">System Type</label>
+                                <select id="calc1Type" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                                    <option value="drop">Liquid Drop (1 surface)</option>
+                                    <option value="bubble">Soap Bubble (2 surfaces)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Surface Tension $S$ ($\text{N/m}$)</label>
+                                <input type="number" id="calc1S" value="0.072" step="0.001" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Radius $R$ ($\text{mm}$)</label>
+                                <input type="number" id="calc1R" value="2.0" step="0.1" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <button onclick="calculateExcessPressure()" class="w-full py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-lg transition-colors">Calculate $\Delta P$ &amp; Energy</button>
+                            <div id="calc1Result" class="p-3 bg-sky-50 dark:bg-slate-900 border border-sky-200 dark:border-sky-800 rounded-lg hidden text-xs space-y-1">
+                                <!-- JS Injected Result -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator 2: Wire Elongation & Strain Energy -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-ruler-vertical text-indigo-500"></i> Wire Elongation Solver
+                        </h3>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Load $F$ ($\text{N}$)</label>
+                                <input type="number" id="calc2F" value="100" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Length $L$ ($\text{m}$)</label>
+                                <input type="number" id="calc2L" value="2.0" step="0.1" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Wire Radius $r$ ($\text{mm}$)</label>
+                                <input type="number" id="calc2R" value="1.0" step="0.1" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Young's Modulus $Y$ ($\text{10}^{11} \text{ Pa}$)</label>
+                                <input type="number" id="calc2Y" value="2.0" step="0.1" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <button onclick="calculateWireElongation()" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-colors">Calculate Elongation</button>
+                            <div id="calc2Result" class="p-3 bg-indigo-50 dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 rounded-lg hidden text-xs space-y-1">
+                                <!-- JS Injected Result -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator 3: Terminal Velocity -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-circle-down text-teal-500"></i> Terminal Velocity Solver
+                        </h3>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Sphere Radius $r$ ($\text{mm}$)</label>
+                                <input type="number" id="calc3R" value="1.0" step="0.1" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Sphere Density $\rho_s$ ($\text{kg/m}^3$)</label>
+                                <input type="number" id="calc3RhoS" value="7800" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Fluid Density $\rho_f$ ($\text{kg/m}^3$)</label>
+                                <input type="number" id="calc3RhoF" value="1000" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 dark:text-slate-300">Viscosity $\eta$ ($\text{Pa}\cdot\text{s}$)</label>
+                                <input type="number" id="calc3Eta" value="1.0" step="0.1" class="mt-1 w-full p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                            </div>
+                            <button onclick="calculateTerminalVelocity()" class="w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-lg transition-colors">Calculate $v_T$</button>
+                            <div id="calc3Result" class="p-3 bg-teal-50 dark:bg-slate-900 border border-teal-200 dark:border-teal-800 rounded-lg hidden text-xs space-y-1">
+                                <!-- JS Injected Result -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: INTERACTIVE FLASHCARDS & QUIZ -->
+            <section id="quiz" class="scroll-mt-20 space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <span class="p-2.5 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-xl text-xl font-bold">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">7. JEE High-Yield Practice &amp; Flashcards</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Test your conceptual clarity with instant flashcard feedback</p>
+                    </div>
+                </div>
+
+                <!-- Flashcard Component -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-md max-w-2xl mx-auto space-y-6 text-center">
+                    <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span id="flashcardCategory" class="px-2.5 py-1 bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 font-bold rounded-full">Surface Tension</span>
+                        <span id="flashcardCounter">Card 1 of 5</span>
+                    </div>
+
+                    <div id="flashcardBox" class="min-h-[140px] flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer transition-all hover:border-purple-400" onclick="flipFlashcard()">
+                        <p id="flashcardContent" class="text-base sm:text-lg font-medium text-slate-800 dark:text-slate-100">
+                            What is the work done in increasing the radius of a soap bubble from $R$ to $2R$?
+                        </p>
+                    </div>
+                    <p class="text-xs text-slate-400"><i class="fa-solid fa-rotate"></i> Click card to flip question/answer</p>
+
+                    <div class="flex items-center justify-center gap-4">
+                        <button onclick="prevFlashcard()" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-lg font-semibold text-xs transition-colors">
+                            <i class="fa-solid fa-arrow-left"></i> Previous
+                        </button>
+                        <button onclick="nextFlashcard()" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold text-xs transition-colors">
+                            Next Card <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>© 2026 JEE Physics Revision Hub • Class 11/12 Fluid Mechanics &amp; Properties of Matter Notes</p>
+            <p class="text-[11px]">Designed with Tailwind CSS, MathJax &amp; Interactive JavaScript Solvers.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- Theme Switcher ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // --- Sidebar Mobile Toggle ---
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        sidebarToggle.addEventListener('click', () => sidebar.classList.remove('-translate-x-full'));
+        closeSidebar.addEventListener('click', () => sidebar.classList.add('-translate-x-full'));
+
+        // Close sidebar on clicking any navigation link (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+        });
+
+        // --- Search Functionality ---
+        const searchInput = document.getElementById('searchInput');
+        const mobileSearchInput = document.getElementById('mobileSearchInput');
+
+        function handleSearch(query) {
+            query = query.toLowerCase().trim();
+            if (!query) return;
+
+            const headings = Array.from(document.querySelectorAll('h2, h3, h4, section'));
+            for (let el of headings) {
+                if (el.textContent.toLowerCase().includes(query)) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                    break;
+                }
+            }
+        }
+
+        searchInput?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch(searchInput.value);
+        });
+
+        mobileSearchInput?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch(mobileSearchInput.value);
+        });
+
+        // --- NUMERICAL CALCULATORS LOGIC ---
+
+        // 1. Excess Pressure
+        function calculateExcessPressure() {
+            const type = document.getElementById('calc1Type').value;
+            const S = parseFloat(document.getElementById('calc1S').value);
+            const R_mm = parseFloat(document.getElementById('calc1R').value);
+            const R = R_mm / 1000.0;
+
+            if (!Number.isFinite(S) || S < 0 || !Number.isFinite(R) || R <= 0) { alert("Enter nonnegative surface tension and a positive radius."); return; }
+
+            let deltaP = (type === 'bubble') ? (4 * S / R) : (2 * S / R);
+            let energy = (type === 'bubble') ? (8 * Math.PI * R * R * S) : (4 * Math.PI * R * R * S);
+
+            const resultBox = document.getElementById('calc1Result');
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = `
+                <p><strong>Excess Pressure ($\Delta P$):</strong> <span class="font-bold text-sky-600 dark:text-sky-400">${deltaP.toFixed(2)} Pa</span></p>
+                <p><strong>Total Surface Energy:</strong> <span class="font-bold text-sky-600 dark:text-sky-400">${energy.toExponential(3)} J</span></p>
+            `;
+            if (window.MathJax) MathJax.typesetPromise([resultBox]);
+        }
+
+        // 2. Wire Elongation
+        function calculateWireElongation() {
+            const F = parseFloat(document.getElementById('calc2F').value);
+            const L = parseFloat(document.getElementById('calc2L').value);
+            const r_mm = parseFloat(document.getElementById('calc2R').value);
+            const Y_val = parseFloat(document.getElementById('calc2Y').value) * 1e11;
+
+            const r = r_mm / 1000.0;
+            const A = Math.PI * r * r;
+
+            if (![F,L,r,Y_val].every(Number.isFinite) || F < 0 || L <= 0 || r <= 0 || Y_val <= 0) { alert("Enter valid positive dimensions and modulus, and a nonnegative load."); return; }
+
+            const deltaL_slow = (F * L) / (A * Y_val);
+            const deltaL_sudden = 2 * deltaL_slow;
+            const energy = 0.5 * F * deltaL_slow;
+
+            const resultBox = document.getElementById('calc2Result');
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = `
+                <p><strong>Slow Load Extension ($\Delta L$):</strong> <span class="font-bold text-indigo-600 dark:text-indigo-400">${(deltaL_slow * 1000).toFixed(4)} mm</span></p>
+                <p><strong>Sudden Load Max Extension:</strong> <span class="font-bold text-rose-600 dark:text-rose-400">${(deltaL_sudden * 1000).toFixed(4)} mm</span></p>
+                <p><strong>Stored Elastic Energy:</strong> <span class="font-bold text-indigo-600 dark:text-indigo-400">${energy.toExponential(3)} J</span></p>
+            `;
+            if (window.MathJax) MathJax.typesetPromise([resultBox]);
+        }
+
+        // 3. Terminal Velocity
+        function calculateTerminalVelocity() {
+            const r_mm = parseFloat(document.getElementById('calc3R').value);
+            const rho_s = parseFloat(document.getElementById('calc3RhoS').value);
+            const rho_f = parseFloat(document.getElementById('calc3RhoF').value);
+            const eta = parseFloat(document.getElementById('calc3Eta').value);
+
+            const r = r_mm / 1000.0;
+            const g = 9.8;
+
+            if (![r,rho_s,rho_f,eta].every(Number.isFinite) || r <= 0 || eta <= 0 || rho_s < 0 || rho_f < 0) { alert("Enter valid positive radius/viscosity and nonnegative densities."); return; }
+
+            const vT = (2 * r * r * g * (rho_s - rho_f)) / (9 * eta);
+            const Re = 2 * r * rho_f * Math.abs(vT) / eta;
+
+            const resultBox = document.getElementById('calc3Result');
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = `
+                <p><strong>Terminal Velocity ($v_T$):</strong> <span class="font-bold text-teal-600 dark:text-teal-400">${vT.toFixed(4)} m/s</span></p>
+                <p><strong>Motion Direction:</strong> <span class="font-bold text-slate-800 dark:text-slate-200">${vT > 0 ? 'Falling Downwards' : vT < 0 ? 'Rising Upwards' : 'Neutral buoyancy'}</span></p>
+                <p><strong>Estimated Reynolds number:</strong> ${Re.toPrecision(3)} ${Re >= 1 ? '— Stokes law may not be valid (requires creeping flow).' : '— check other Stokes-law assumptions.'}</p>
+            `;
+            if (window.MathJax) MathJax.typesetPromise([resultBox]);
+        }
+
+        // --- FLASHCARDS SYSTEM ---
+        const flashcards = [
+            {
+                category: "Surface Tension",
+                q: "What is the work done in increasing the radius of a soap bubble from $R$ to $2R$?",
+                a: "Work done $W = 8\pi S [(2R)^2 - R^2] = 24\pi R^2 S = 3 W_{\text{initial}}$."
+            },
+            {
+                category: "Elasticity",
+                q: "How does the maximum extension under sudden loading compare to gradual loading?",
+                a: "Under sudden loading, maximum extension is DOUBLE ($\Delta L_{\text{sudden}} = 2 \times \Delta L_{\text{gradual}}$) ; an ideal undamped system does not dissipate energy as heat!"
+            },
+            {
+                category: "Viscosity",
+                q: "What is the relation between Poise and SI unit Poiseuille (Pa·s)?",
+                a: "$1 \text{ Pa}\cdot\text{s} = 1 \text{ Poiseuille} = 10 \text{ Poise}$. (Therefore, $1 \text{ Poise} = 0.1 \text{ Pa}\cdot\text{s}$)."
+            },
+            {
+                category: "Capillarity",
+                q: "What happens if a capillary tube of insufficient length $h' < h$ is dipped in water?",
+                a: "Water will NOT overflow! It rises to the top and increases its radius of curvature $R'$ such that $h' R' = h R$ (Jurin's Law)."
+            },
+            {
+                category: "Elasticity Moduli",
+                q: "What is the relation connecting Young's Modulus ($Y$), Bulk Modulus ($B$), and Rigidity ($\eta$)?",
+                a: "$\frac{9}{Y} = \frac{1}{B} + \frac{3}{\eta}$ and $Y = 3B(1 - 2\sigma) = 2\eta(1 + \sigma)$."
+            }
+        ];
+
+        let currentCardIndex = 0;
+        let isFlipped = false;
+
+        function updateFlashcardUI() {
+            const card = flashcards[currentCardIndex];
+            document.getElementById('flashcardCategory').innerText = card.category;
+            document.getElementById('flashcardCounter').innerText = `Card ${currentCardIndex + 1} of ${flashcards.length}`;
+            
+            const contentBox = document.getElementById('flashcardContent');
+            contentBox.innerHTML = isFlipped ? card.a : card.q;
+
+            if (window.MathJax) MathJax.typesetPromise([contentBox]);
+        }
+
+        function flipFlashcard() {
+            isFlipped = !isFlipped;
+            updateFlashcardUI();
+        }
+
+        function nextFlashcard() {
+            isFlipped = false;
+            currentCardIndex = (currentCardIndex + 1) % flashcards.length;
+            updateFlashcardUI();
+        }
+
+        function prevFlashcard() {
+            isFlipped = false;
+            currentCardIndex = (currentCardIndex - 1 + flashcards.length) % flashcards.length;
+            updateFlashcardUI();
+        }
+    </script>
+<script>
+(function(){
+const key='jee-fluid-completed-v2';let done=[];try{done=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(done))done=[]}catch(e){}
+function paint(){document.querySelectorAll('[data-module]').forEach(b=>{let ok=done.includes(b.dataset.module);b.textContent=(ok?'✓ ':'○ ')+b.dataset.module.replace(/-/g,' ').replace(/^./,c=>c.toUpperCase());b.setAttribute('aria-pressed',String(ok))});document.getElementById('progressText').textContent=done.length+' / 3';document.getElementById('progressFill').style.width=(done.length/3*100)+'%'}
+document.querySelectorAll('[data-module]').forEach(b=>b.addEventListener('click',()=>{let id=b.dataset.module;done=done.includes(id)?done.filter(x=>x!==id):[...done,id];try{localStorage.setItem(key,JSON.stringify(done))}catch(e){}paint()}));paint();
+document.getElementById('shuffleCards')?.addEventListener('click',()=>{if(typeof flashcards==='undefined')return;for(let i=flashcards.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[flashcards[i],flashcards[j]]=[flashcards[j],flashcards[i]]}currentCardIndex=0;isFlipped=false;updateFlashcardUI();document.getElementById('quiz').scrollIntoView({behavior:'smooth'})});
+const searchFeedback=document.getElementById('searchFeedback');
+window.handleSearch=function(query){query=query.trim().toLowerCase();if(!query){searchFeedback.textContent='Type a topic or formula to search.';return}document.querySelectorAll('.search-hit').forEach(e=>e.classList.remove('search-hit'));const matches=[...document.querySelectorAll('main h2,main h3,main h4,main p,main li')].filter(e=>e.textContent.toLowerCase().includes(query));if(matches.length){matches[0].classList.add('search-hit');matches[0].scrollIntoView({behavior:'smooth',block:'center'});searchFeedback.textContent=matches.length+' matching passages found.'}else searchFeedback.textContent='No matches. Try a shorter keyword.'};
+try{if(localStorage.getItem('jee-fluid-dark')==='true')document.documentElement.classList.add('dark')}catch(e){}
+document.getElementById('themeToggle')?.addEventListener('click',()=>{try{localStorage.setItem('jee-fluid-dark',String(document.documentElement.classList.contains('dark')))}catch(e){}});
+})();
+</script>
+</body>
+</html>
